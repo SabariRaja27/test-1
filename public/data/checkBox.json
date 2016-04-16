@@ -1,0 +1,21 @@
+{
+	"ViewModels":
+	 [
+	   {
+		   "Name":"Box 1",
+		   "Value":"Box1",
+		   "Status": true
+	   },
+	   {
+		   "Name":"Box 2",
+		   "Value":"Box2",
+		   "Status": true 
+	   },
+	   {
+		   "Name":"Box 3",
+		   "Value":"Box3",
+		   "Status": true  
+	   }
+     ],
+  "Success": true
+}

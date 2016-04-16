@@ -1,0 +1,41 @@
+﻿<div>
+    <div ng-if="ViewClicked">
+        <div>
+            <div class="col-md-12" id="evtdetails">
+                <div class="row">
+                    <div class="col-md-12">
+                        <table class="table table-striped table-condensed">
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        Code
+                                    </td>
+                                    <td>
+                                        <i class="fa fa-key"></i>&nbsp;{{details.Code}}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Name
+                                    </td>
+                                    <td>
+                                        <i class="fa fa-reorder"></i>&nbsp;{{details.Name}}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Status
+                                    </td>
+                                    <td>
+                                        <span ng-if="Status === 'Enabled'"><i class="fa fa-circle text-success"></i></span>
+                                        <span ng-if="Status === 'Disabled'"><i class="fa fa-circle text-muted"></i></span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,24 @@
+﻿{
+    "ViewModels": [
+        {
+            "Name": "Fixed",
+            "Status": true,
+            "Id": 1,
+            "Code": "Fixed"
+        },
+        {
+            "Name": "Square feet",
+            "Status": true,
+            "Id": 2,
+            "Code": "SqrFt"
+        },
+        {
+            "Name": "Seats",
+            "Status": true,
+            "Id": 3,
+            "Code": "Seats"
+        }
+
+    ],
+  "Success": true
+}

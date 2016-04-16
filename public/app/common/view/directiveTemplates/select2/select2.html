@@ -1,0 +1,4 @@
+﻿<select id="{{controlId}}" class="vm-select2 btn-block" ng-model="ngModel" ng-change="onChangeEvent(ngModel,'{{controlId}}')">
+    <option></option>
+    <option ng-repeat="item in items" value="{{item[valueField]}}" ng-selected="selectedValue=='{{item[textField]}}'">{{item[textField]}}</option>
+</select>

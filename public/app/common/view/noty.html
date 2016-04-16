@@ -1,0 +1,8 @@
+﻿<div class="vm-text-center">
+    <div id="notyMessage" class="alert noty-{{(m.type)||'info'}} alert-dismissable flyover flyover-centered"
+        ng-repeat="m in noty.queue">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
+            ×</button>
+        <strong><big>{{m.body}}</big></strong>
+    </div>
+</div>

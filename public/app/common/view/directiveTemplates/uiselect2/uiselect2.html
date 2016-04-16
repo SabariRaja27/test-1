@@ -1,0 +1,17 @@
+<div ng-if="isMultiple != 'true'">
+    <ui-select class="btn-block vm-cursor-pointer vmdropdown" id="{{controlId}}" name="{{controlId}}" ng-required="{{requiredField}}" data-controlname="{{validationName}}" ngvalidate ng-disabled="isDisabled" ng-model="ngSelectModel"
+               theme="select2" ng-change="onChangeEvent({{$select.selected}})">
+        <ui-select-match placeholder="{{placeHolder}}" allow-clear="true">{{$select.selected.Name}}</ui-select-match>
+        <ui-select-choices repeat="item.Code as item in items | orderBy:'Name' | filter: {Name: $select.search}">
+            {{item.Name}}
+        </ui-select-choices>
+    </ui-select>
+</div>
+<div ng-if="isMultiple == 'true'">
+    <ui-select multiple ng-model="ngSelectModel" theme="select2" ng-disabled="isDisabled" class="btn-block vm-cursor-pointer vmdropdown" id="{{controlId}}" name="{{controlId}}" ng-required="{{requiredField}}" data-controlname="{{controlId}}" ngvalidate ng-change="onChangeEvent(ngSelectModel)">
+            <ui-select-match placeholder="{{PlaceHolder}}">{{$item.Name}}</ui-select-match>
+        <ui-select-choices repeat="item.Code as item in items | orderBy:'Name' | filter: {name: $select.search} track by $index">
+            <div ng-bind-html="item.Name | highlight: $select.search"></div>
+        </ui-select-choices>
+      </ui-select>
+</div>

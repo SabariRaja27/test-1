@@ -1,0 +1,93 @@
+ <vm-title title-value="Address" style-value="info alert-info" expand-collapse="minus" control-id="title_Address"></vm-title>
+<div>
+    <fieldset id="{{ 'fieldAddress_' + controlId}}">
+        <div id="{{ 'divAddress_' + controlId}}">
+            <div class="col-md-12">
+                <div class="form-group row">
+                    <div class="col-md-6">
+                        <label for="{{'txtAddressLine1_'+ controlId}}" class="control-label vm-nowrap">
+                            Street Line 1
+                        </label>
+                        <input type="text" ng-model="AddressLine1" class="form-control" id="{{'txtAddressLine1_'+ controlId}}" placeholder="Street line1" name="{{'txtAddressLine1_'+ controlId}}" autocomplete="off" maxlength="140" data-controlname="StreetLine 1" ng-required="true" ngvalidate />
+
+                    </div>
+                    <div class="col-md-6">
+                        <label for="{{'txtAddressLine2_'+ controlId}}" class="control-label vm-nowrap">
+                            Street Line 2
+                        </label>
+                        <input type="text" ng-model="AddressLine2" class="form-control vm-dummy-txtAddress" id="{{'txtAddressLine2_'+ controlId}}" placeholder="Street line2" name="{{'txtAddressLine2_'+ controlId}}" autocomplete="off" maxlength="100" />
+
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-md-3">
+                        <label for="{{'txtCity_'+ controlId}}" class="control-label">
+                            City
+                        </label>
+                        <!--<vm-ui-select2 control-id="{{'cboCity_'+ controlId}}" place-holder="Select City" ng-select-model="cityModel" items="Cities" ></vm-ui-select2>-->
+                        <input type="text" class="form-control vm-dummy-txtAddress" ng-model="City" id="{{'txtCity_'+ controlId}}" placeholder="City" name="{{'txtCity_'+ controlId}}" autocomplete="off" maxlength="50" data-controlname="City" ng-required="true" ngvalidate />
+
+                    </div>
+                    <div class="col-md-3">
+                        <label class="control-label" for="{{'txtState_'+ controlId}}">
+                            State
+                        </label>
+                        <!--<vm-ui-select2 control-id="{{'cboState_'+ controlId}}" place-holder="Select State" ng-select-model="stateModel"
+                                       source-url="/state" source-obj="ViewModels" requierd-field="false"></vm-ui-select2>-->
+                        <input type="text" class="form-control vm-dummy-txtAddress" ng-model="State" id="{{'txtState_'+ controlId}}" placeholder="State" name="{{'txtState_'+ controlId}}" autocomplete="off" maxlength="20" data-controlname="State" ng-required="false" ngvalidate />
+                    </div>
+                    <div class="col-md-3">
+                        <label class="control-label" for="{{'txtCountry_'+ controlId}}">
+                            Country
+                        </label>
+                        <!--<vm-ui-select2 control-id="{{'cboCountry_'+ controlId}}" place-holder="Select Country" ng-select-model="countryModel"
+                                            source-url="/country" source-obj="ViewModels" requierd-field="false"></vm-ui-select2><!--<vm-ui-select2 control-id="{{'cboCountry_'+ controlId}}" place-holder="Select Country" ng-select-model="countryModel"
+                        source-url="/country" source-obj="ViewModels" requierd-field="false"></vm-ui-select2>-->
+                        <input type="text" class="form-control vm-dummy-txtAddress" ng-model="Country" id="{{'txtCountry_'+ controlId}}" placeholder="Country" name="{{'txtCountry_'+ controlId}}" autocomplete="off" maxlength="20" data-controlname="Country" ng-required="true" ngvalidate />
+                    </div>
+                    <div class="col-md-3">
+                        <label for="{{'txtZip_'+ controlId}}" class="control-label vm-nowrap">
+                            Postal Code
+                        </label>
+                        <input type="text" data-controlname="Pin Code" maxlength="6" only-digits ng-model="PostalCode" class="form-control required vm-dummy-txtAddress alphanumeric" id="{{'txtZip_'+ controlId}}" placeholder="Postal Code" name="{{'txtZip_'+ controlId}}" autocomplete="off" ng-required="true" ngvalidate />
+
+                    </div>
+                </div>
+                <!--<div class="form-group row">
+                    <label class="col-sm-4 control-label" for="{{'cboCountry_'+ controlId}}">
+                        Country
+                    </label>
+                    <div class="col-sm-8">
+                       <vm-ui-select2 control-id="{{'cboCountry_'+ controlId}}" place-holder="Select Country" ng-select-model="countryModel"
+                            source-url="/country" source-obj="ViewModels" requierd-field="false"  ></vm-ui-select2>
+                    </div>
+                </div>
+                    <div class="form-group row">
+                    <label class="col-sm-4 control-label" for="{{'cboState_'+ controlId}}">
+                       State
+                    </label>
+                    <div class="col-sm-8">
+                          <vm-ui-select2 control-id="{{'cboState_'+ controlId}}" place-holder="Select State" ng-select-model="stateModel"
+                              source-url="/state" source-obj="ViewModels" requierd-field="false"  ></vm-ui-select2>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="{{'cboCity_'+ controlId}}" class="col-sm-4 control-label">
+                        City</label>
+                    <div class="col-sm-8">
+                       <vm-ui-select2 control-id="{{'cboCity_'+ controlId}}" place-holder="Select City" ng-select-model="cityModel" items="Cities" ></vm-ui-select2>
+                       <input type="text" class="form-control vm-dummy-txtAddress" ng-model="City" id="{{'txtCity_'+ controlId}}" placeholder="City" name="{{'txtCity_'+ controlId}}" autocomplete="off"/>
+                    </div>
+                </div>-->
+                <!--<div class="form-group row">
+                    <label for="{{'txtZip_'+ controlId}}" class="col-sm-4 control-label vm-nowrap">
+                        Postal Code</label>
+                    <div class="col-sm-8">
+                        <input type="text" maxlength="20" ng-model="PostalCode" class="form-control required vm-dummy-txtAddress alphanumeric" id="{{'txtZip_'+ controlId}}" placeholder="Zip" name="{{'txtZip_'+ controlId}}" autocomplete="off"/>
+                    </div>
+                </div>-->
+
+            </div>
+        </div>
+    </fieldset>
+</div>

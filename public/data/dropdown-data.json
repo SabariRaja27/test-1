@@ -1,0 +1,25 @@
+﻿ {
+		"Customer": [
+            { "name": "Military Produce Group", "code": "Military Produce Group" },
+            { "name": "Albert", "code": "02" },
+            { "name": "John", "code": "03" }
+        ],
+		"State": [
+            { "name": "FL", "code": "FL" },
+			{ "name": "GA", "code": "GA" }
+        ],
+		"City": [
+            { "name": "Winter Haven", "code": "01" },
+			{ "name": "Savannah", "code": "Savannah" }
+        ],
+		
+		"CoolerCode": [
+            { "name": "B6", "code": "01" },
+			{ "name": "SC", "code": "SC" }
+        ],
+		
+		"Carrier": [
+            { "name": "Giltner", "code": "01" },
+			{ "name": "rrex", "code": "02" }
+        ]
+    } 

@@ -1,0 +1,18 @@
+﻿{
+    "ViewModels": [
+        {
+            "Name": "Tax",
+            "Status": true,
+            "Id": 1,
+            "Code": "TAX01"
+        },
+        {
+            "Name": "Configuration",
+            "Status": true,
+            "Id": 2,
+            "Code": "CONFIG"
+        }
+
+    ],
+  "Success": true
+}

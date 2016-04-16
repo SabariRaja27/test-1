@@ -1,0 +1,24 @@
+<form ng-controller="checkboxController" name="chkboxForm" data-ng-submit="save(items)" novalidate ngformvalidate>
+  <div class="row">
+	<div class="col-md-4"></div>
+	<div class="col-md-8 form-group">
+	<div class="row">
+		<label>CheckBox</label>
+		<vm-check-box name="test1" source-url="data/checkBox.json" source-obj="ViewModels" ng-model="items.checkbox" 
+		control-id="test1"  is-multiple="true" button-allignment="vertical" required ngvalidate></vm-check-box>
+	</div>
+	<div class="row">
+		<label>CheckBox1</label>
+		<vm-check-box name="test2" source-url="data/checkBox.json" source-obj="ViewModels" ng-model="items.modelcheckbox" 
+		control-id="test2" is-multiple="false"  button-allignment="vertical" required ngvalidate></vm-check-box>
+	</div>
+	<div class="row">	
+		<label>CheckBox2</label>
+		<vm-check-box name="test3" source-url="data/checkBox.json" source-obj="ViewModels" ng-model="items.modelcheckbox1" 
+		control-id="test3" is-multiple="true" button-allignment="vertical" required ngvalidate></vm-check-box>
+	<div class="row">
+		<button type="submit" class="btn btn-primary" formname="chkboxForm">Save</button>
+	</div>
+  </div>
+  </div>
+</form>

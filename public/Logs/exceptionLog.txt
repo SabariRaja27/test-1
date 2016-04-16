@@ -1,0 +1,8 @@
+08/26/2015***10:40:49,662***ERROR******VMOKSHA\RanjanDe***DTSS.Api.BaseController***Documents***Exception Message: Cannot perform runtime binding on a null reference& Stack Trace:   at CallSite.Target(Closure , CallSite , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute1[T0,TRet](CallSite site, T0 arg0)
+   at DTSS.Api.DocumentController.Documents(ExpandoObject request) in d:\Projects\SVN Repo\VMLABSD1\trunk\source\DTSS\DTSS\Api\DocumentController.cs:line 156
+08/26/2015***10:40:52,146***ERROR******VMOKSHA\RanjanDe***DTSS.Api.BaseController***Documents***Exception Message: Cannot perform runtime binding on a null reference& Stack Trace:   at CallSite.Target(Closure , CallSite , Object )
+   at DTSS.Api.DocumentController.Documents(ExpandoObject request) in d:\Projects\SVN Repo\VMLABSD1\trunk\source\DTSS\DTSS\Api\DocumentController.cs:line 156
+08/26/2015***10:48:05,781***ERROR******VMOKSHA\RanjanDe***DTSS.Api.BaseController***Documents***Exception Message: Cannot perform runtime binding on a null reference& Stack Trace:   at CallSite.Target(Closure , CallSite , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute1[T0,TRet](CallSite site, T0 arg0)
+   at DTSS.Api.DocumentController.Documents(ExpandoObject request) in d:\Projects\SVN Repo\VMLABSD1\trunk\source\DTSS\DTSS\Api\DocumentController.cs:line 156

@@ -1,0 +1,190 @@
+<nav class="navbar-fixed-top navbar-PROTON" ng-controller="navBarController">
+    <!--<div class="row top-header">
+    </div>-->
+    <!--By Chaitra for slide menu Starts-->
+    <div class="row">
+        <!--<div class="col-md-1 col-sm-1 col-xs-1">
+            <a href="#menu-toggle" id="menu-toggle">
+                <div class="menu_icon custom_icon">
+                </div>
+            </a>
+        </div>-->
+        <!--By Chaitra for slide menu Ends-->
+        <div class="navbar-header col-md-3 col-sm-3 col-xs-3">&nbsp;
+            <img src="app/img/Logo/Logo.png" style="padding: 5px 15px 5px 35px;">
+        </div>
+
+        <div class="col-md-7 col-sm-7 col-xs-7">
+            <div class="navbar-collapse collapse" id="navbar-main">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="nav-text">
+                        <a href="#/dashboard">
+                            <i class="fa fa-tachometer"></i>&nbsp;DASHBOARD
+                        </a>
+                    </li>
+
+                    <li ng-class="{'active': isActive('/')}" class="nav-text">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="Javascript:void();"><i class="fa fa-lock"></i>&nbsp;Order<span class="caret"></span><span class="badge">{{OpenOrderscount}}</span></a>
+                        <ul class="dropdown-menu vm-dummy-menuBorder">
+                            <li ng-class="{'active':isActive('/order')}"><a href="#/order"><i class="fa fa-check-square"></i>&nbsp;Order</a></li>
+                            <li class="divider"></li>
+                            <li><label>&nbsp;&nbsp;&nbsp;&nbsp;Master</label></li>
+                            <li ng-class="{'active':isActive('/orderstatus')}"><a href="#/orderstatus"><i class="fa fa-dot-circle-o"></i>&nbsp;Order Status</a></li>
+                            <li ng-class="{'active':isActive('/paymentstatus')}"><a href="#/paymentstatus"><i class="fa fa-money"></i>&nbsp;Payment Status</a></li>
+                            <li ng-class="{'active':isActive('/paymenttype')}"><a href="#/paymenttype"><i class="fa fa-money"></i>&nbsp;Payment Type</a></li>
+                            <li ng-class="{'active':isActive('/role')}"><a href="#/role"><i class="fa fa-th-list"></i>&nbsp;Role</a></li>
+                            <li ng-class="{'active':isActive('/unitofmeasurement')}"><a href="#unitofmeasurement"><i class="fa fa-filter"></i>&nbsp;Unit of measurement</a></li>
+                            <li ng-class="{'active':isActive('/ordermethod')}"><a href="#/ordermethod"><i class="fa fa-filter"></i>&nbsp;Order method</a></li>
+                        </ul>
+                    </li>
+
+                    <li ng-class="{'active': isActive('/')}" class="nav-text">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="Javascript:void();"><i class="fa fa-lock"></i>&nbsp;Admin<span class="caret"></span></a>
+                        <ul class="dropdown-menu vm-dummy-menuBorder">
+                            <li ng-class="{'active':isActive('/category')}"><a href="#/category"><i class="fa fa-tasks"></i>&nbsp;Category</a></li>
+                            <li ng-class="{'active':isActive('/subcategory')}"><a href="#/subcategory"><i class="fa fa-sitemap"></i>&nbsp;Sub Category</a></li>
+                            <li ng-class="{'active':isActive('/servicetype')}"><a href="#/servicetype"><i class="fa fa-file-text-o"></i>&nbsp;Service Type</a></li>
+                            <li ng-class="{'active':isActive('/option')}"><a href="#/option"><i class="fa fa-share-alt"></i>&nbsp;Option</a></li>
+                            <li ng-class="{'active':isActive('/user')}"><a href="#/user"><i class="fa fa-user"></i>&nbsp;User</a></li>
+                            <li ng-class="{'active':isActive('/location')}"><a href="#/location"><i class="fa fa-map-marker"></i>&nbsp;Location</a></li>
+                            <li ng-class="{'active':isActive('/serviceprice')}"><a href="#/serviceprice"><i class="fa fa-rub"></i>&nbsp;Service Price</a></li>
+                            <li ng-class="{'active':isActive('/serviceprovider')}"><a href="#/serviceprovider"><i class="fa fa-location-arrow"></i>&nbsp;Service Provider</a></li>
+                            <li ng-class="{'active':isActive('/rating')}"><a href="#/rating"><i class="fa fa-star"></i>&nbsp;Rating</a></li>
+                            <li ng-class="{'active':isActive('/configuration')}"><a href="#/configuration"><i class="fa fa-cog"></i>&nbsp;Configuration</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="col-md-2 col-sm-2 col-xs-2">
+            <div class="notification-icon pull-right" style="padding-right:15px;">
+                <ul class="nav navbar-nav pull-right">
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="Javascript:void();" style="padding-top:12px; color:black;">
+                            <!--<img class="profilepictheme" ng-src="{{userProfileImage}}"
+                                 style="height: 20px; width: 20px;" />-->
+                            <span ng-show="!profilepicpresent"><i class="fa fa-user fa-lg"></i></span>
+                            <span ng-show="profilepicpresent">
+                                <img class="profilepictheme" ng-src="{{userProfileImage}}" style="height: 20px; width: 20px;" />
+                            </span>
+                            &nbsp;&nbsp;<span class="caret"></span>
+                        </a>
+                        <!--<ul class="dropdown-menu" aria-labelledby="download">
+                            <li><a href="/login"><i class="fa fa-power-off fa-sm text-danger"></i>&nbsp;Sign Out</a></li>
+                        </ul>-->
+
+
+                        <ul aria-labelledby="download" class="dropdown-menu" style="left: auto; right: 0; width: 300px;padding: 2px 2px 2px 2px;">
+                            <li class="vm-dummy-divBorderRadius">
+                                <div class="col-md-12 vm-dummy-divBorderRadius">
+                                    <div class="row" style="background-color: #DDDBDB;">
+                                        <div class="col-md-6" style="border-right: 1px dashed rgb(204, 204, 204); padding-left:0px">
+                                            <a style="text-decoration: none; color:white;" class="btn btn-link vm-dummy-divfont" href="#/Profile/{{LoggedOnUserCode}}?mode=View" id="lnkMyProfile">Profile</a>
+                                            <a style="text-decoration: none; color:white;padding-top:0px;" class="btn btn-link vm-dummy-divfont" ng-click="changepassword('sm')">Change Password</a>
+                                        </div>
+                                        <div class="col-md-6" style="padding-top:8px;">
+                                            <a class="pull-right" tooltip="Sign Out" href="#/login" id="anchSignout"><i class="fa fa-power-off red"></i></a>
+                                        </div>
+                                    </div>
+                                    <div class="row" style="padding-bottom:5px;" >
+                                        <div class="col-md-2">
+                                            <div style="padding-top: 5px; float: left; height: 50px; width: 50px;">
+                                                <span ng-show="!profilepicpresent">
+                                                    <img class="vm-dummy-ImageBorderRadius" src="/app/img/user.jpg" width="50" height="50">
+                                                </span>
+                                                <span ng-show="profilepicpresent">
+                                                    <img class="profilepictheme" ng-src="{{userProfileImage}}" width="50" height="50" />
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-10 vm-dummy-divPadding">
+                                            <div style="padding-left: 5px; padding-right: 5px; font-family: Arial,sans-serif; color:black;"><b>{{LoggedOnUserName}}</b></div>
+                                            <div style="padding-left: 5px; padding-right: 5px; font-size: 12px; font-family: Arial,sans-serif;">
+                                                <span style="color:black;">{{LoggedOnUserEmail}}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+
+
+
+                    </li>
+                </ul>
+
+            </div>
+
+        </div>
+    </div>
+</nav>
+<script type="text/ng-template" id="AssemblyInfo.html">
+    <div class="modal-header">
+        <button type="button" class="close" ng-click="cancel()">
+            &times;
+        </button>
+        <h3 class="modal-title">About Us</h3>
+    </div>
+    <div class="modal-body" ng-controller="navBarController">
+        <form>
+            <table class="table table-striped table-condensed table-responsive table-bordered">
+                <thead ng-show="false">
+                    <tr>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Name</td>
+                        <td>{{AssemblyInfo.ApplicationName}}</td>
+                    </tr>
+                    <tr>
+                        <td>Description</td>
+                        <td>{{AssemblyInfo.ApplicationDescription}}</td>
+                    </tr>
+                    <tr class="danger">
+                        <td>Version</td>
+                        <td>{{AssemblyInfo.ApplicationVersion}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+    </div>
+</script>
+
+
+
+<script type="text/ng-template" id="myModalContent.html">
+    <form ng-controller="navBarController" name="ChangePasswordform" data-ng-submit="ChangePassword(Password)" novalidate ngformvalidate>
+        <div class="modal-header">
+            <button type="button" class="close" ng-click="cancel()">
+                &times;
+            </button>
+            <h3 class="modal-title">Change Password</h3>
+        </div>
+        <div class="modal-body">
+            <div class="form-group">
+                <label>Old Password</label>
+                <input type="password" class="form-control btn-block " id="OldPassword" placeholder="Old Password" data-controlname="Old Password" name="Old Password" ng-model="Password.OldPassword" ng-required="true" data-ng-minlength="3" ng-maxlength="15" ngvalidate>
+            </div>
+            <br>
+            <div class="form-group">
+                <label>New Password</label>
+                <input type="password" class="form-control btn-block" id="NewPassword" placeholder="New Password" data-controlname="New Password" name="New Password" ng-model="Password.NewPassword" ng-required="true" data-ng-minlength="3" ng-maxlength="15" ngvalidate>
+            </div>
+            <br>
+            <div class="form-group">
+                <label>Confirm Password</label>
+                <input type="password" class="form-control btn-block " id="ConfirmPassword" placeholder="Confirm Password" data-controlname="Confirm Password" name="Confirm Password" ng-model="Password.ConfirmPassword" match="Password.NewPassword" ng-required="true" data-ng-minlength="3" ng-maxlength="15" ngvalidate>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn btn-success" formname="ChangePasswordform" click-once="Saving...">Save</button>
+        </div>
+    </form>
+
+</script>
+
+

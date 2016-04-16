@@ -1,0 +1,208 @@
+﻿<div class="row" ng-controller="eventcalendarcontroller">
+    <div class="col-md-12">
+            <vm-title control-id="Calendar" title-value="Event" style-value="info alert-info"
+                text-value="Add" icon="fa fa-plus"></vm-title>
+            <div class="row">
+                <h2 class="text-center">{{calendarTitle}}
+                </h2>
+            </div>
+            <div class="row">
+                <div class="col-md-6 text-center">
+                    <div class="btn-group">
+                        <button class="btn btn-primary" mwl-date-modifier date="calendarDay" decrement="calendarView">
+                            Previous
+                        </button>
+                        <button class="btn btn-default" mwl-date-modifier date="calendarDay" set-to-today>
+                            Today
+                        </button>
+                        <button class="btn btn-primary" mwl-date-modifier date="calendarDay" increment="calendarView">
+                            Next
+                        </button>
+                    </div>
+                </div>
+                <br class="visible-xs visible-sm">
+                    <div class="col-md-6 text-center">
+                        <div class="btn-group">
+                            <label class="btn btn-primary" ng-model="calendarView" btn-radio="'year'">
+                                Year</label>
+                            <label class="btn btn-primary" ng-model="calendarView" btn-radio="'month'">
+                                Month</label>
+                            <label class="btn btn-primary" ng-model="calendarView" btn-radio="'week'">
+                                Week</label>
+                            <label class="btn btn-primary" ng-model="calendarView" btn-radio="'day'">
+                                Day</label>
+                        </div>
+                    </div>
+                </br>
+            </div>
+        <div>&nbsp;</div>
+            <div class="row">
+                <mwl-calendar view="calendarView"
+                              current-day="calendarDay"
+                              events="events"
+                              on-event-click="eventClicked(calendarEvent)"
+                              on-edit-event-click="eventEdited(calendarEvent)"
+                              on-delete-event-click="eventDeleted(calendarEvent)"
+                              auto-open="true"
+                              on-event-drop="eventDropped(calendarEvent); calendarEvent.startsAt = calendarNewEventStart; calendarEvent.endsAt = calendarNewEventEnd"
+                              delete-event-html="'<i class=\'glyphicon glyphicon-remove\'><\i>'"
+                              edit-event-html="'<i class=\'glyphicon glyphicon-pencil\'><\i>'">
+                </mwl-calendar>
+            </div>
+        </div>
+    
+    <div class="col-md-12">
+        &nbsp;</div>
+
+<div class="row">
+    &nbsp;</div>
+<!--<script type="text/ng-template" id="modalContent.html">
+            <div class="modal-header">
+              <h3 class="modal-title">Event action occurred!</h3>
+            </div>
+            <div class="modal-body">
+              <p>Action: <pre>{{ action }}</pre></p>
+              <p>Event: <pre>{{ event | json }}</pre></p>
+            </div>
+            <div class="modal-footer">
+              <button class="btn btn-primary" ng-click="$close()">OK</button>
+            </div>
+</script>-->
+<script type="text/ng-template" id="NewEventModal.html">
+    <form name="AddEventForm" data-ng-submit="SaveEvent(EventDetails)" novalidate ngformvalidate>
+        <div class="modal-header">
+            <button type="button" class="close" ng-click="cancel()">
+                &times;
+            </button>
+            <h3 class="modal-title">
+                {{EventModalTitle}}
+            </h3>
+        </div>
+        <perfect-scrollbar class="scroller" wheel-propagation="true" wheel-speed="10" min-scrollbar-length="50">
+            <div class="modal-body">
+                <!--<div class="row">
+                    <div class="col-md-6 form-group">
+                        <label>
+                            Speciality
+                        </label>
+                        <vm-ui-select2 master-name="Speciality" control-id="DoctorSpeciality" place-holder="Speciality" ng-select-model="EventDetails.Speciality"
+                                       source-url="/data/Speciality.json" source-obj="ViewModels" is-disabled="true"></vm-ui-select2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 form-group">
+                        <label>
+                            Doctor
+                        </label>
+                        &nbsp;{{DoctorName}}
+                    </div>
+                </div>-->
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label>
+                                Title
+                            </label>
+                            <input type="text" class="form-control" id="txtTitle" placeholder="Title" ng-model="EventDetails.title" name="txtTitle_Appointment" ng-required="true" data-controlname="Title" ngvalidate>
+                        </div>
+                    </div>
+                </div>
+                <!--<div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>
+                                Type
+                            </label>
+                            <div class="controls">
+                                <vm-ui-select2 master-name="Type" control-id="cboEventType" place-holder="Select" ng-select-model="EventDetails.type" source-url="data/dropdown-data.json" source-obj="EventType"></vm-ui-select2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>
+                                Location
+                            </label>
+                            <div class="controls">
+                                <vm-ui-select2 master-name="Location" control-id="cboLocation" place-holder="Select" ng-select-model="EventDetails.location"
+                                               source-url="data/dropdown-data.json" source-obj="State"></vm-ui-select2>
+                            </div>
+                        </div>
+                    </div>
+                </div>-->
+                <div class="row" ng-controller="eventcalendarcontroller">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>
+                                Starts At
+                            </label>
+                            <div class="controls">
+                                <p class="input-group" style="max-width: 250px">
+                                    <input type="text" class="form-control date-required" readonly datepicker-popup="dd MMMM yyyy" ng-model="EventDetails.startsAt"
+                                           is-open="EventDetails.startOpen" close-text="Close" 
+                                           name="txtStartDateTime_Appointment" ng-required="true" data-controlname="Starts At" ngvalidate />
+                                    <span class="input-group-btn">
+                                        <button type="button" class="btn btn-default" ng-click="toggle($event, 'startOpen', EventDetails)">
+                                            <i class="glyphicon glyphicon-calendar"></i>
+                                        </button>
+                                    </span>
+                                </p>
+                                <!--<vm-date-picker control-id="txtStartDateTime_Event" ng-class="date" control-name="Start Date"
+                                                ng-date-selected="EventDetails.startsAt"></vm-date-picker>-->
+                                <timepicker ng-model="EventDetails.startsAt" hour-step="1" minute-step="15" show-meridian="true"></timepicker>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>
+                                Ends At
+                            </label>
+                            <div class="controls">
+                                <p class="input-group" style="max-width: 250px">
+                                    <input type="text" class="form-control date-required" readonly datepicker-popup="dd MMMM yyyy" ng-model="EventDetails.endsAt"
+                                           is-open="EventDetails.endOpen" close-text="Close"
+                                           name="txtEndDateTime_Appointment" ng-required="true" data-controlname="Ends At" ngvalidate />
+                                    <span class="input-group-btn">
+                                        <button type="button" class="btn btn-default" ng-click="toggle($event, 'endOpen', EventDetails)">
+                                            <i class="glyphicon glyphicon-calendar"></i>
+                                        </button>
+                                    </span>
+                                </p>
+                                <timepicker ng-model="EventDetails.endsAt" hour-step="1" minute-step="15" show-meridian="true"></timepicker>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label>
+                                Description
+                            </label>
+                            <textarea id="txtDescription" class="form-control" rows="3" placeholder="Description"
+                                      ng-model="EventDetails.Content"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </perfect-scrollbar>
+        <div class="modal-footer" ng-controller="eventcontroller">
+            <button type="submit" class="btn btn-primary">
+                Save
+            </button>
+        </div>
+    </form>
+</script>
+<script type="text/ng-template" id="deletemodalContent.html">
+  <div class="modal-header">
+  </div>
+            <div class="modal-body">
+                Are you sure you want to delete the record ?
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-danger" ng-click="confirmdelete()">OK</button> 
+                <button class="btn btn-primary" ng-click="cancel()">Cancel</button>
+            </div>
+</script>
+</div>

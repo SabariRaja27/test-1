@@ -1,0 +1,81 @@
+﻿.asm-horizontal
+{
+    width:240px !important;
+}
+
+.user-icon
+{
+      border-style: solid;
+      border-width: 1px;
+      border-radius: 50px;
+      width: 50px;
+      height: 50px;
+      text-align: center;
+      background-color: #848484;
+      color: #FAAC58;
+      border-color: #848484;
+      vertical-align: middle;
+      padding-top: 10px;
+}
+
+.cbp-spmenu {
+	background: #ffffff;
+	position: fixed;
+	/*margin-top:57px;*/
+	box-shadow: 0px 0px 10px 0px #333;
+}
+
+.cbp-spmenu h5 {
+	color: #F3F781;
+	padding: 11px;
+	margin: 0;
+	background: #FAAC58;
+}
+
+.cbp-spmenu a:hover  
+{
+    text-decoration:none;
+}
+
+.cbp-spmenu div {
+	display: block;
+	color: #6E6E6E;
+	font-size: 1.1em;
+	font-weight: 300;
+}
+
+.cbp-spmenu div:hover {
+	background: #D8D8D8;
+	color:#ffffff;
+	cursor:pointer;
+	text-decoration:none;
+}
+
+.cbp-spmenu div > a
+{
+    color:#6E6E6E;
+}
+
+.cbp-spmenu div > a:hover {
+	text-decoration:none;
+	color:#ffffff;
+}
+
+.cbp-spmenu div:active {
+	background: #afdefa;
+	color: #47a3da;
+}
+
+/* Orientation-dependent styles for the content of the menu */
+
+.cbp-spmenu-vertical {
+	width: 240px;
+	height: 100%;
+	top: 0;
+	z-index: 1000;
+}
+
+.cbp-spmenu-vertical div {
+	border-bottom: 2px solid #BDBDBD;
+	padding: 1em;
+}

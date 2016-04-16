@@ -1,0 +1,55 @@
+<!--<div class="row">
+    <form class="form-inline">
+    <div class="col-md-12">
+    <div class="form-group">
+        <input type="text" class="form-control input-md" id="{{txt+ViewName+Name}}" ng-model="search.name"/></div>
+        </div>
+    </form>
+</div>-->
+<div class="row">
+    <div id="dt-pbar-{{controlId}}">
+    </div>
+    <div ng-if="showMasterTable">
+        <table datatable="ng" dt-options="lookUpDtOptions" dt-column-defs="lookUpDtColumnDefs"
+               class="table table-striped table-condensed table-responsive">
+            <thead class="ng-hide">
+                <tr>
+                    <th class="vm-text-center">
+                    </th>
+                    <th class="vm-text-center" data-column-name="Name">
+                        Name
+                    </th>
+                    <th class="vm-text-center" data-column-name="ID">
+                        ID
+                    </th>
+                    <th class="vm-text-center" data-column-name="Code">
+                        Code
+                    </th>
+                    <th class="vm-text-center ng-hide" data-column-name="Status">
+                        Status
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="data in LookUpData | orderBy:'Name' | filter:search">
+                    <td width="2%;">
+                        <!--<a ng-click="openMasterModal(data)" class="View"><i class="View fa fa-level-down text-primary"></i></a>&nbsp;&nbsp;-->
+                        <span tooltip="Edit" style="float: none; position: static;" class="vm-cursor-pointer">
+                            <a ng-click="openLookUpModal(data)"><i class="fa fa-edit text-primary"></i></a>
+                        </span>
+                        <!--&nbsp;&nbsp;<a href="javascript:void(;)"><i class="fa fa-trash-o text-danger"></i></a>-->
+                    </td>
+                    <td width="98%;">
+                        <span tooltip-append-to-body="true" tooltip="{{data.Tooltipname}}"
+                              ng-click="showLookUpDetails(data)" class="vm-cursor-pointer" data-column-name="Name">
+                            {{ data.Name| limitTo:25}}{{data.Name.length > 25 ? '...' : ''}}
+                        </span>
+                    </td>
+                    <td class="vm-text-center ng-hide" data-column-name="ID"></td>
+                    <td class="vm-text-center ng-hide" data-column-name="Code"></td>
+                    <td class="vm-text-center ng-hide" data-column-name="Status"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

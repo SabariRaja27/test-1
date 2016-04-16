@@ -1,0 +1,13 @@
+<div id="div_checkbox_{{controlId}}" >
+   
+  <div  class="checkbox-inline" ng-repeat="item in items" ng-if="buttonAllignment == 'horizontal'">
+  	<input type="checkbox" id="{{controlId}}" is-multiple="isMultiple" name="{{controlId}}" ng-model="ngModel" value="{{item.Value}}"  />
+  	<label>{{item.Name}}</label>
+  </div>
+  
+  <div ng-repeat="item in items" ng-if="buttonAllignment == 'vertical'">
+  	<input type="checkbox" id="{{controlId}}" is-multiple="isMultiple" name="{{controlId}}" ng-model="ngModel" value="{{item.Value}}"  />
+  	<label>{{item.Name}}</label>
+  </div>
+  	
+</div>

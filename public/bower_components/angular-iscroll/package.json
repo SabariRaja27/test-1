@@ -1,0 +1,103 @@
+{
+  "name": "angular-iscroll",
+  "version": "1.2.3",
+  "description": "AngularJS module that enables iScroll 5 functionality, wrapping it in an easy-to-use directive.",
+  "main": "dist/lib/angular-iscroll.js",
+  "scripts": {
+    "prepublish": "gulp",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mtr/angular-iscroll.git"
+  },
+  "keywords": [
+    "iscroll",
+    "angular",
+    "directive"
+  ],
+  "author": {
+    "name": "Martin Thorsen Ranang",
+    "email": "mtr@ranang.org"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mtr/angular-iscroll/issues"
+  },
+  "homepage": "https://github.com/mtr/angular-iscroll",
+  "dependencies": {
+    "angular": ">=1.2",
+    "iscroll": "^5.1.3"
+  },
+  "devDependencies": {
+    "angular-messages": "^1.3.9",
+    "angular-ui-router": "^0.2.13",
+    "bootstrap-sass": "^3.3.1",
+    "browser-sync": "^1.9.0",
+    "browserify": "^8.1.0",
+    "browserify-ngannotate": "^0.5.0",
+    "browserify-shim": "^3.8.2",
+    "dateformat": "^1.0.11",
+    "gulp": "^3.8.10",
+    "gulp-bump": "^0.1.13",
+    "gulp-cached": "^1.0.1",
+    "gulp-concat": "^2.4.3",
+    "gulp-connect": "^2.2.0",
+    "gulp-filter": "^2.0.0",
+    "gulp-footer": "^1.0.5",
+    "gulp-gh-pages": "^0.4.0",
+    "gulp-git": "^0.5.6",
+    "gulp-header": "^1.2.2",
+    "gulp-jshint": "^1.9.0",
+    "gulp-ng-annotate": "^0.4.3",
+    "gulp-remember": "^0.3.0",
+    "gulp-rename": "^1.2.0",
+    "gulp-ruby-sass": "^1.0.0-alpha",
+    "gulp-sourcemaps": "^1.3.0",
+    "gulp-tag-version": "^1.2.1",
+    "gulp-uglify": "^1.0.2",
+    "gulp-util": "^3.0.2",
+    "jquery": "^2.1.3",
+    "lodash": "^2.4.1",
+    "normalize.css": "^3.0.2",
+    "preprocessify": "0.0.3",
+    "pretty-bytes": "^1.0.2",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.0.0",
+    "watchify": "^2.2.1"
+  },
+  "browser": {
+    "angular-messages": "./node_modules/angular-messages/angular-messages.js",
+    "bootstrap": "./node_modules/bootstrap-sass/assets/javascripts/bootstrap.js"
+  },
+  "browserify": {
+    "transform": [
+      "browserify-shim"
+    ]
+  },
+  "browserify-shim": {
+    "angular": {
+      "depends": "jquery:jQuery",
+      "exports": "angular"
+    },
+    "angular-messages": {
+      "depends": "angular",
+      "exports": "angular.module('ngMessages')"
+    },
+    "bootstrap": {
+      "depends": "jquery:jQuery"
+    },
+    "ui.router": {
+      "depends": "angular",
+      "exports": "angular.module('ui.router')"
+    }
+  },
+  "readme": "# angular-iscroll\nAngularJS module that enables iScroll 5 functionality, wrapping it in an easy-to-use directive\n\n## Install\n\nInstall the [angular-iscroll NPM package](https://www.npmjs.com/package/angular-iscroll)\n```bash\nnpm install --save angular-iscroll\n```\n\nOr, to check out a development version, start by cloning the repository, by\n```bash\ngit clone git@github.com:mtr/angular-iscroll.git\n```\nThen, install the necessary dependencies:\n```bash\ncd angular-iscroll/\nnpm install\n```\nAfter that, you should have a `dist` directory with a subdirectory named `lib`:\n```\ndist/\n└── lib\n    ├── angular-iscroll.js\n    └── angular-iscroll.min.js\n```\n\n### Build\n\nTo rebuild the library, run\n```bash\ngulp            # or \"gulp watch\" (to rebuild on every file change)\n```\n\nTo build the examples, run\n```bash\ngulp examples   # (will rebuild on every file change)\n```\n\n\n## Demo\nYou may have a look at [core-layout](http://mtr.github.io/core-layout/examples/) ([GitHub repo](https://github.com/mtr/core-layout/)), an Angular demo app that shows how you can use the `iscroll` directive in a responsive-design web-app with support for both drawers (slide-out menus) and modals.  For example, the demo shows how to handle DOM content generated dynamically through [ngRepeat](https://docs.angularjs.org/api/ng/directive/ngRepeat).\n\n## Usage\n\nIn the following, `IScroll` (with capital 'I' and 'S') refers to instances \nof the [iScroll Javascript library](http://iscrolljs.com/) that this package provides an AngularJS wrapper for. \n\nThe main usage pattern for `angular-iscroll` is to define a dependency on the `angular-iscroll` module in your AngularJS app.  For example: \n```js\nangular.module('myApp', ['angular-iscroll']);\n```\nor, in a Browserify-based code base:\n```js\nangular.module('myApp', [require('angular-iscroll').name]);\n```\n\nThe `angular-iscroll` module includes both a directive, `iscroll`, and a service, `iScrollService`, which gives you access to and control over a shared, global state of whether to enable, disable, or refresh the `IScroll` instances for each `iscroll` directive instance.\n\nNext, to use the directive, you should set up your HTML template like\n```html\n…\n<body ng-controller=\"MyAppController as app\"\n      ng-class=\"{\n      'iscroll-on': app.iScrollState.useIScroll,\n      'iscroll-off': !app.iScrollState.useIScroll\n      }\">\n<div class=\"iscroll-wrapper\" iscroll>\n  <div class=\"iscroll-scroller\">\n  </div>\n</div>\n…\n```\nLet me explain the essential parts of that HTML example.  First of all, the `iscroll` directive is an attribute of an element belonging to the `iscroll-wrapper` class, which wraps an element of the `iscroll-scroller` class.  Those two classes are defined in the [SASS](http://sass-lang.com/) file [dist/lib/scss/_iscroll.scss](dist/lib/scss/_iscroll.scss), but they don't have any meaning unless they occur inside an `iscroll-on` class; and that's where the shared, global state from iScrollService comes in.  The controller, `MyAppController`, in the above example exposes the state variable shared by iScrollService in its scope\n```js\nfunction MyAppController(iScrollService) {\n    var vm = this;  // Use 'controller as' syntax \n\n    vm.iScrollState = iScrollService.state;\n}\n```\nthereby providing a way to globally change the meaning of the `iscroll-wrapper` + `iscroll-scroller` combination.  Please note: To get more info about the \"controller as\" syntax, you might enjoy [John Papa's AngularJS Style Guide](https://github.com/johnpapa/angularjs-styleguide#controlleras-with-vm).\n\nFurthermore, the global iScroll state exposed by the service should be changed through the service's `enable([signalOnly])`, `disable([signalOnly])`, and `toggle([signalOnly])` methods, where each method will change the state accordingly, and then emit a corresponding signal from `$rootScope` that gets picked up and handled by the available `angular-iscroll` directive instances.  If the `signalOnly` flag is `true`, then the state is not changed by the service method, but the signal is sent nonetheless.  If the directives receive an `iscroll:disabled` signal, they will destroy any existing `IScroll` instances, and if they receive an `iscroll:enabled` signal, they will create a new `IScroll` instances per directive instance if it doesn't already exist.\n\nIt should also be noted that during instantiation, in the directive's post-link phase, the `iscroll` directive will check the `iScrollService`'s `useIScroll` state to decide whether or not it will create an actual `IScroll` instance.  Consequently, if you would like to create an AngularJS solution that uses iScroll only on, for example, iOS devices, you should determine the current browser type early, probably inside the app controller's [configuration block](https://docs.angularjs.org/guide/module#module-loading-dependencies), and set the service's `useIscroll` state accordingly.  Please note that `angular-iscroll` does not contain any code to detect which browser or platform it is currently running on, which is a separate, complex task better solved by specialized libraries, like [platform.js](https://github.com/bestiejs/platform.js).\n\n\n### Manual Interaction with Each Directive's IScroll Instance\nIf you want access to a scope's `IScroll` instance, you can supply an optional \n`iscroll-instance` attribute when applying the `iscroll` directive, like\n```html\n…\n<div class=\"iscroll-wrapper\" iscroll iscroll-instance=\"instance\">\n  <div class=\"iscroll-scroller\">\n  </div>\n</div>\n…\n```\nThat way, the scope's `instance` variable will hold a reference to the actual\n `IScroll` instance, so you can access the IScroll instance's own API, for \n example to define [custom events](http://iscrolljs.com/#custom-events) or \n access its [scroller info](http://iscrolljs.com/#scroller-info).\n\n\n### Configuration\nI've designed this module so that it should be easy to configure.  First of all, you can supply per-instance options, both for `IScroll` and the directive itself, when you apply the directive.  For example\n```html\n<div iscroll=\"{mouseWheel: true, momentum: true, refreshInterval: 500}\">…</div>\n```\nwould pass along the options `{mouseWheel: true, momentum: true}` to `IScroll`, while the directive-specific configuration parameter, `{refreshInterval: 500}`, is only interpreted by the directive.  Any config option not recognized as a directive-specific option, will be forwarded to `IScroll`.\n\nThere are lots of configuration options for IScroll itself; those are best [documented by iScroll](http://iscrolljs.com/#configuring).\n\n#### Directive Options\nThe directive provides two configuration options:\n\n- `asyncRefreshDelay` (default `0`): defines the delay, in ms, before the directive asynchronously performs an IScroll.refresh().  If `false`, then no async refresh is performed.  This can come in handy when you need to wait for the DOM to be rendered before `IScroll` can know the size of its scrolling area.\n- `refreshInterval` (default `false`): a delay, in ms, between each periodic iScroll.refresh().  If `false`, then no periodic refresh is performed.  This functionality can be handy in complex applications, where it might be difficult to decide when `iScrollService.refresh()` should be called, and a periodic call to `IScroll.refresh()`, for example every 500 ms, might provide a smooth user experience.  To avoid scroll stuttering caused by calls to refresh during an ongoing scroll operation, the `angular-iscroll` directive prevents `refresh()` calls if IScroll is currently performing a scroll operation.\n\n#### Globally Configuring the Directive's Default Options\n\nThe `iscroll` directive gets its default configuration from the `iScrollService`.  To provide a way to easily, globally configure the defaults for all `iscroll` instances, the module defines an `iScrollServiceProvider` which can be injected into the app controller's configuration block which is guaranteed to run before the controller is used anywhere.  For example:\n```js\n/* @ngInject */\nfunction _config(iScrollServiceProvider) {\n    iScrollServiceProvider.configureDefaults(/* Supply your default configuration object here. */);\n}\n\nangular\n    .module('myApp', ['angular-iscroll'])\n    .config(_config);\n```\nThe configuration you provide this way will serve as the updated global default for all `iscroll` directive instances.\n\nPlease note that the above example relies on [ng-annotate](https://www.npmjs.com/package/ng-annotate) for adding AngularJS dependency-injection annotations during builds, as indicated by the `/* @ngInject */` comment.\n",
+  "readmeFilename": "README.md",
+  "_id": "angular-iscroll@1.2.3",
+  "dist": {
+    "shasum": "101196f1da89df538a3fafce2eeba51c5bf6b989"
+  },
+  "_from": "angular-iscroll@",
+  "_resolved": "https://registry.npmjs.org/angular-iscroll/-/angular-iscroll-1.2.3.tgz"
+}

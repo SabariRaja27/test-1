@@ -1,0 +1,21 @@
+<div class="row col-md-12" id="{{controlId}}">
+	<vm-title title-value="{{panelTitle}}" style-value="info alert-info"></vm-title>
+	<div class="row">&nbsp;</div>
+
+	<div ng-repeat="Data in progressbarItems | orderBy: 'text'">
+
+		<div class="row">
+			<div class="col-md-8">
+				<span style="color: black; white-space: nowrap;">{{Data.text}}&nbsp;<span>{{textType}}</span></span>
+			</div>
+			<div class="col-md-4" style="text-align: right">
+				<span style="color: black; white-space: nowrap;">{{Data.value}}<span>{{valueType}}</span></span>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<progressbar max="Data.max" value="Data.value" type="{{Data.type}}"></progressbar>
+			</div>
+		</div>
+	</div>
+</div>

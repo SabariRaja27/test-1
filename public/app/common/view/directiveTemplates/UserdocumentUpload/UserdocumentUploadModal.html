@@ -1,0 +1,55 @@
+<div class="modal-header" id="div_documentUploadmodal">
+    <div class="vm-text-center">
+        <div class="alerts" ng-show="noty.queue.length>0" ng-controller="usercontroller">
+            <div class="col-md-12  alert alert-{{(m.type)||'info'}} alert-dismissable fade in pull-right" ng-repeat="m in noty.queue">
+                <button type="button" class="close" data-dismiss="alert">×</button>
+                <div>{{m.body}}</div>
+            </div>
+        </div>
+    </div>
+    <button type="button" class="close" ng-click="cancel()">
+        &times;</button>
+    <h3 class="modal-title">Add</h3>
+</div>
+<div ng-controller="documentcontroller">
+    <form name="DocumentForm" data-ng-submit="addTodocumentGrid(currentfileAdded); AddNotyMessage(DocumentForm.$valid); cancel(DocumentForm.$valid)" novalidate ngformvalidate>
+        <div class="modal-body">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>Document Type</label>
+                        <vm-ui-select2 name="DocumentType" place-holder="Select"
+                            ng-select-model="DocumentTypeDetails" data-controlname="Document Type"
+                            source-url="/data/dropdown-data.json" source-obj="Documents" requierd-field="false"></vm-ui-select2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-8">
+                    <input class="form-control" id="txtDocumentName" placeholder="" ng-model="currentfileAdded_name" name="DocumentName"
+                        ng-required="true" data-controlname="Document" ngvalidate />
+                </div>
+                <!-- <span class="btn btn-danger fileinput-button"><i class="icon-upload icon-white"></i>
+             <span>Browse</span>
+        <input type="file" nv-file-select uploader="uploader"/><br/>
+          </span>-->
+                <button type="button" class="btn btn-primary" ng-file-select="" ng-model="files" ng-multiple="false">Browse</button>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary">Upload</button>
+        </div>
+    </form>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+

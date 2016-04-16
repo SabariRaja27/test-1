@@ -1,0 +1,51 @@
+﻿<table  ng-controller="documentcontroller" id="tbl_document" class="table table-striped  ng-hide">
+        <thead class="ng-hide">
+        <tr>
+            <th class="vm-text-center" width="1%"></th>
+            <th class="vm-text-center" width="1%"></th>
+            <th class="vm-text-center" width="88%"></th>
+            <th class="vm-text-center" width="10%"></th>
+            <th class="vm-text-center"></th>
+            <th class="vm-text-center"></th>
+           <th class="vm-text-center"></th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr>
+                    <td width="1%">
+                      <div data-ng-if="file.id === 0">
+                        <a id="{{file.name}}" tooltip="Cancel" style="text-decoration: none; cursor: pointer;" data-ng-click="cancelDocument($event,file)">
+                          <i class="fa fa-ban"></i>
+                        </a>
+                      </div>
+                      <div data-ng-if="file.id !== 0">
+                        <a id="delete_{{file.id}}" tooltip="Delete" style="text-decoration: none; cursor: pointer;" data-ng-click="delete(file)">
+                          <i class="fa fa-trash"></i>
+                        </a>
+                      </div>
+                    </td>
+                    <td width="1%">
+                      <div data-ng-if="file.id === 0">
+                        <i class="fa fa-download" style="line-height: inherit"></i>
+                      </div>
+                      <div data-ng-if="file.id !== 0">
+                        <a id="download_{{file.id}}" tooltip="Download" style="text-decoration: none; cursor: pointer;" data-ng-click="download(file)">
+                          <i class="fa fa-download"></i>
+                        </a>
+                      </div>
+                    </td>
+                    <td  width="88%">
+                      <span tooltip="{{file.name}}">{{file.choppedfilename}}</span>
+                    </td>
+                    <td  width="10%">
+                       <span tooltip="{{file.documenttype}}">{{file.documenttype | characters:10}}</span>
+                    </td>
+                    <td class="ng-hide">
+                      <span tooltip="{{file.type}}">{{file.type | characters:10}}</span>
+                    </td>
+                    <td class="ng-hide">{{file.createdby}}</td>
+                    <td class="ng-hide">{{file.modifiedDate}}</td>
+                  </tr>
+        </tbody>
+    </table>
+

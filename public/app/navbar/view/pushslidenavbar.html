@@ -1,0 +1,45 @@
+﻿<div class="sidemenu" ng-controller="pushSlideNavBarController" ng-init="nav.subnavType=InitiateMenu()">
+    <div id="sidebar-wrapper" class="vm-menu" style="margin-top: 47px;background: #585858;" ng-init="nav.navType=InitiateMenu()">
+        <!--Collapsed menu starts-->
+        <div class="panel mini-navbar vm-panel-navbar" ng-click="nav.subnavType=navItem.Url" ng-show="showIconMenu" ng-if="navItem.SubMenus.length == 0"
+             ng-repeat="navItem in MenuJSON | filterMultiple:{PrivilegedRoleCodes : [LoggedOnUserRole,null]} | orderBy: 'menuOrder' track by $index" tooltip-append-to-body="true" tooltip-placement="right" tooltip="{{navItem.Title}}">
+            <div class="panel-heading" style="border-radius:0px;" ng-class="{'nav-active': nav.navType==navItem.Url}">
+                <a style="color:#F2F2F2; text-decoration:none;" ng-click="nav.navType=navItem.Url" href="{{navItem.Url}}"><i class="{{navItem.icon}}"></i></a>
+            </div>
+        </div>
+        <div class="panel mini-navbar vm-panel-navbar" ng-show="showIconMenu" ng-if="navItem.SubMenus.length > 0"
+             ng-mouseover="over=true" ng-mouseleave="over=false" ng-repeat="navItem in MenuJSON | filterMultiple:{PrivilegedRoleCodes : [LoggedOnUserRole,null]} | orderBy: 'menuOrder' track by $index">
+            <div class="panel-heading" ng-class="{'nav-active': nav.navType==navItem.Url}" style="border-radius:0px;color:#F2F2F2;"><i class="{{navItem.icon}}"></i></div>
+            <div class="panel-body collapse" ng-class="{in: over}" style="padding:0px;">
+                <div ng-click="nav.navType=navItem.Url" ng-repeat="navSubItem in navItem.SubMenus | filterMultiple:{PrivilegedRoleCodes : [LoggedOnUserRole,null]} | orderBy: 'menuOrder' track by $index" style="border-bottom: 1px solid #BDBDBD; border-right:1px solid #BDBDBD; background:#848484; padding: 1em;"
+                     tooltip-append-to-body="true" tooltip-placement="right" tooltip="{{navSubItem.Title}}" ng-class="{'subnav-active': nav.subnavType==navSubItem.Url}">
+                    <a style="color:#F2F2F2; text-decoration:none;" ng-click="nav.subnavType=navSubItem.Url" role="menuitem"
+                       tabindex="-1" href="{{navSubItem.Url}}"><i class="{{navSubItem.icon}}"></i></a>
+                </div>
+            </div>
+        </div>
+        <!--Collapsed menu ends-->
+        <!--Expaded menu starts-->
+        <div class="panel max-navbar vm-panel-navbar " ng-click="nav.subnavType=navItem.Url" ng-show="!showIconMenu" ng-if="navItem.SubMenus.length == 0"
+             ng-repeat="navItem in MenuJSON | filterMultiple:{PrivilegedRoleCodes : [LoggedOnUserRole,null]} | orderBy: 'menuOrder' track by $index">
+            <div class="panel-heading" style="border-radius:0px;" ng-class="{'nav-active': nav.navType==navItem.Url}">
+                <a style="color:#F2F2F2; text-decoration:none;" ng-click="nav.navType=navItem.Url" href="{{navItem.Url}}">
+                    <i class="{{navItem.icon}}">
+                    </i>&nbsp;{{navItem.Title}}
+                </a>
+            </div>
+        </div>
+        <div class="panel max-navbar vm-panel-navbar " ng-show="!showIconMenu" ng-if="navItem.SubMenus.length > 0"
+             ng-mouseover="over=true" ng-mouseleave="over=false" ng-repeat="navItem in MenuJSON | filterMultiple:{PrivilegedRoleCodes : [LoggedOnUserRole,null]} | orderBy: 'menuOrder' track by $index">
+            <div class="panel-heading" ng-class="{'nav-active': nav.navType==navItem.Url}" style="border-radius:0px;color:#F2F2F2;"><i class="{{navItem.icon}}"></i>&nbsp;{{navItem.Title}}</div>
+            <div class="panel-body collapse" ng-class="{in: over}" style="padding:0px;">
+                <div ng-click="nav.navType=navItem.Url" ng-repeat="navSubItem in navItem.SubMenus | filterMultiple:{PrivilegedRoleCodes : [LoggedOnUserRole,null]} | orderBy: 'menuOrder' track by $index" style="border-bottom: 1px solid #BDBDBD; border-right:1px solid #BDBDBD;background:#848484;padding: 1em;"
+                     tooltip-append-to-body="true" tooltip-placement="right" tooltip="{{navSubItem.Title}}" ng-class="{'subnav-active': nav.subnavType==navSubItem.Url}">
+                    <a style="color:#F2F2F2; text-decoration:none;" ng-click="nav.subnavType=navSubItem.Url" role="menuitem"
+                       tabindex="-1" href="{{navSubItem.Url}}"><i class="{{navSubItem.icon}}"></i>&nbsp;{{navSubItem.Title}}</a>
+                </div>
+            </div>
+        </div>
+        <!--Expaded menu ends-->
+    </div>
+</div>

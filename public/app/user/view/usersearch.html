@@ -1,0 +1,70 @@
+﻿<div class="row">
+    <div class="col-md-12">
+        <div class="well">
+            <form ng-controller="usercontroller" data-ng-submit="SearchUser(Details)" name="UserSearchForm" novalidate ngformvalidate>
+                <div class="row">
+                    <div class="col-md-12 form-group">
+                        <label>
+                            Type
+                        </label>
+                        <vm-ui-select2 control-id="Search_ByType" validation-name="Type"
+                                       place-holder="Select" ng-select-model="Details.SearchType" source-url="api/role" required-field="true" master-name="Type"
+                                       source-obj="GenericSearchViewModels" ngvalidate></vm-ui-select2>
+                    </div>
+                    <div class="col-md-12 form-group">
+                        <label>
+                            Name
+                        </label>
+                        <div class="controls">
+                            <input type="text" class="form-control" id="Search_ByName" placeholder="Name" ng-model="Details.SearchName" name="Name" data-controlname="Name" ng-required="false"
+                                   maxlength="250" ngvalidate>
+                        </div>
+                    </div>
+                    <div class="col-md-12 form-group">
+                        <label>
+                            Email
+                        </label>
+                        <div class="controls">
+                            <input type="text" class="form-control" id="Search_ByEmail" ng-pattern="/^[a-zA-Z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]{2,5}$/" placeholder="Email" ng-model="Details.SearchEmail" name="Email" data-controlname="Email" ng-required="false"
+                                   maxlength="200" ngvalidate>
+                        </div>
+                    </div>
+                    <div class="col-md-12 form-group">
+                        <label>
+                            Mobile No.
+                        </label>
+                        <input type="text" name="MobileNumber" data-controlname="Mobile Number" class="form-control" id="Search_MobileNumber" placeholder="Mobile Number"
+                               ng-model="Details.MobileNumber" ng-required="false" maxlength="10" ngvalidate only-digits>
+                    </div>
+                    <div class="col-md-12 form-group">
+                        <label>
+                            Date Range
+                        </label>
+                        <div class="input-group">
+                            <input date-range-picker class="form-control date-picker readonly-custom " id="txtSearchDate_range" type="text" ng-model="Details.DateRange" name="daterange"
+                                   placeholder="Date Range" readonly />
+                            <label class="input-group-addon" for="txtDate_range"><i class="fa fa-th"></i></label>
+                            <label class="input-group-addon" ng-click="clearDateRangePicker()"><i class="fa fa-undo"></i></label>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <center>
+                            <div class="col-md-12">
+                                <button type="reset" id="btnClear" class="btn btn-default btn-md" ng-click="ClearClicked()">
+                                    Clear
+                                </button>
+                                <button type="submit" id="btnSubmit" class="btn btn-danger btn-md">
+                                    Search
+                                </button>
+                            </div>
+                        </center>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+

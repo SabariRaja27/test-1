@@ -1,0 +1,74 @@
+﻿
+<div ng-controller="mastercontroller">
+    <div class="row">
+            <div class="col-md-10">
+                <div class="col-md-4 vm-lookup-padding">
+                    <vm-title title-value="{{TitleName}}" style-value="info alert-info" expand-collapse="minus" control-id="title_Master"></vm-title>
+                    <div class="well">
+                        <lookup-table templateurl="app/common/view/directiveTemplates/lookuptable/LookupTable.html" sourceurl={{SourceURL}} datasource="GenericSearchViewModels" control-id="{{ViewName}}"></lookup-table>
+                    </div>
+                </div>
+            <div class="col-md-7">
+                <div class="row">
+                    &nbsp;</div>
+                <div class="row">
+                    &nbsp;</div>
+                <div class="row">
+                    &nbsp;</div>
+                    <!--Details view place holder (Start)-->
+                <section data-ng-include=" 'app/genericmaster/view/masterdetails.html' "></section>
+            </div>
+        </div>
+
+        <div class="col-md-2">
+            <div class="pull-right">
+                <a class="btn btn-primary" ng-click="openMasterModal('sm',null,'add')" id="{{ 'btn' + ViewName + '_Add' }}">
+                    <i class="fa fa-plus"></i>&nbsp;Create</a></div> 
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <!--<div class="col-md-4">
+            <vm-title title-value="{{TitleName}}" style-value="info alert-info" expand-collapse="minus" control-id="title_Master"></vm-title>
+            <div class="well">
+                <lookup-table templateurl="app/common/view/directiveTemplates/lookuptable/LookupTable.html" sourceurl={{SourceURL}} datasource="ViewModel" control-id="{{ViewName}}"></lookup-table>
+            </div>
+            </div>-->
+            <!--Details view place holder (Start)-->
+<!--            <div class="col-md-5">
+                <section data-ng-include=" 'app/genericmaster/view/masterdetails.html' "></section>
+            </div>-->
+            <script type="text/ng-template" id="myMasterModalContent.html">
+            <form name="MasterForm" ng-controller="mastercontroller" data-ng-submit="SaveData(MasterDetails)" novalidate ngformvalidate>
+            <div class="modal-header" id="{{'div_'+ViewName+'modal'}}">
+             <button type="button" class="close" ng-click="cancel()">
+                    &times;</button>
+                <h3 class="modal-title">{{MasterModelTitle}}</h3>
+            </div>
+            <div class="modal-body">
+                    <input type="hidden" class="col-md-12" id="{{'txtHidden'+ViewName+'Id'}}" name="{{'txtHidden'+ViewName+'Id'}}" placeholder="" ng-model="MasterDetails.Id">
+                    <div class="row form-group">
+                        <div class="col-md-12">
+                        <label>Name</label>
+                        <input type="text" class="form-control" id="{{'txtTitle_'+ViewName}}" placeholder="Name" ng-model="MasterDetails.MasterName" name="Name" data-controlname="Name" ng-required="true" maxlength="200"
+                        ngvalidate>
+                        </div>
+                    </div>  
+                    
+                    <div class="row form-group"  id="divIsActive">
+                        <div class="col-md-12">
+                        <label>Status</label>
+                        <div><toggle-switch model="MasterDetails.switchStatus"><toggle-switch></div>
+                        </div>
+                    </div> 
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary" formname="MasterForm" click-once="Saving...">Save</button>
+            </div>
+            </form>
+        </script>
+        </div>
+    </div>
+    </div>
+
+

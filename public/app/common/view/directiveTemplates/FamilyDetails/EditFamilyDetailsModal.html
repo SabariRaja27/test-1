@@ -1,0 +1,114 @@
+<div class="modal-header" id="div_documentUploadmodal">
+<div class="vm-text-center">
+         <div class="alerts" ng-show="noty.queue.length>0" >
+                <div class="col-md-12  alert alert-{{(m.type)||'info'}} alert-dismissable fade in pull-right" ng-repeat="m in noty.queue">
+                    <button type="button" class="close" data-dismiss="alert">×</button>
+                    <div>{{m.body}}</div>
+                </div>
+            </div>
+      </div>
+    <button type="button" class="close" ng-click="cancel()">
+        &times;</button>
+    <h3 class="modal-title">Edit Family</h3>
+</div>
+<div >
+    <form name="DocumentForm"   data-ng-submit="FamilyEdit(FamilyEditDetails) ;AddNotyMessage(DocumentForm.$valid); cancel(DocumentForm.$valid)" >
+        <div class="modal-body">
+            <div class="row" >
+            <div class="col-md-4">
+                    <div class="form-group">
+                        <label>
+                            Name</label>
+                        <input type="text" class="form-control" id="txt_name" placeholder="Name"  ng-model="FamilyEditDetails.Name" ng-required="true" >
+                    </div>
+                </div>
+         <div class="col-md-4">
+         <div class="form-group">
+                        <label>
+                            Age</label>
+                        <input type="text" class="form-control" id="txt_age" placeholder="Age"  ng-model="FamilyEditDetails.Age" ng-required="true" >
+                    </div>
+                    </div>
+                    <div class="col-md-4">
+         <div class="form-group">
+                        <label>
+                            Gender</label>
+                        <input type="text" class="form-control" id="txt_gender" placeholder="Gender"  ng-model="FamilyEditDetails.Gender" ng-required="true" >
+                    </div>
+                    </div>
+                <!--<div class="col-md-12">
+                    <div class="form-group">
+                        <label>Document Type</label>
+                        <vm-ui-select2 name="DocumentType" control-id="cboDocumentType" place-holder="Select"
+                            ng-select-model="DocumentTypeDetails" items="Masters.Documents" data-controlname="Document Type"
+                            class="required drop-required" ngdropvalidate></vm-ui-select2>
+                    </div>
+                </div>-->
+            </div>
+            <div class="row"  >
+            <div class="col-md-4">
+                    <div class="form-group">
+                        <label>
+                            Relationship</label>
+                        <input type="text" class="form-control" id="txt_relationship" placeholder="Relationship"  ng-model="FamilyEditDetails.Relationship" ng-required="true" >
+                    </div>
+                </div>
+         <div class="col-md-4">
+         <div class="form-group">
+                        <label>
+                            Marital Status</label>
+                        <input type="text" class="form-control" id="txt_maritalstatus" placeholder="Marital Status"  ng-model="FamilyEditDetails.MaritalStatus" ng-required="true" >
+                    </div>
+                    </div>
+                    <div class="col-md-4">
+         <div class="form-group">
+                        <label>
+                            Education Qualification</label>
+                        <input type="text" class="form-control" id="txt_eduqual" placeholder="Education Qualification"  ng-model="FamilyEditDetails.EducationQualification" ng-required="true" >
+                    </div>
+                    </div>
+                
+            </div>
+            <div class="row"  >
+            <div class="col-md-4">
+                    <div class="form-group">
+                        <label>
+                            Occupation</label>
+                        <input type="text" class="form-control" id="txt_occupation" placeholder="Occupation"  ng-model="FamilyEditDetails.Occupation" ng-required="true" >
+                    </div>
+                </div>
+         <div class="col-md-4">
+         <div class="form-group">
+                        <label>
+                            Monthly Income</label>
+                        <input type="text" class="form-control" id="txt_monthlyincome" placeholder="Monthly Income"  ng-model="FamilyEditDetails.MonthlyIncome" ng-required="true" >
+                    </div>
+                    </div>
+                    <div class="col-md-4">
+         <div class="form-group">
+                        <label>
+                           Contact No.</label>
+                        <input type="text" class="form-control" id="txt_contactno" placeholder="Contact No"  ng-model="FamilyEditDetails.ContactNo" ng-required="true" >
+                    </div>
+                    </div>
+                
+            </div>
+           
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" >Save</button>
+        </div>
+    </form>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+

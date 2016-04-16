@@ -1,0 +1,10 @@
+﻿Dear @Model.ToName, 
+
+As requested, we email your password to [@Model.ToEmail]
+
+Your Password is [@Model.Password]
+
+Thanks & regards,
+Administator
+
+[***This is an system generated email, please do not reply to this email id.***]

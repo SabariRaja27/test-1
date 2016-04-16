@@ -1,0 +1,97 @@
+﻿
+<div class="row">
+    <div class="col-md-12">
+        <div id="dt-pbar-usersearchtable">
+        </div>
+        <table datatable="ng" dt-options="dtOptions" dt-column-defs="dtColumnDefs"
+               class="table table-striped table-condensed table-responsive">
+            <thead style="white-space:nowrap;">
+                <tr>
+                    <th class="vm-text-center">
+                    </th>
+                    <th class="vm-text-center">
+                    </th>
+                    <th class="vm-text-center" data-column-name="Name">
+                        Name
+                    </th>
+                    <th class="vm-text-center" data-column-name="Email">
+                        Email
+                    </th>
+                    <th class="vm-text-center" data-column-name="Mobile">
+                        Mobile
+                    </th>
+                    <th class="vm-text-center" data-column-name="Category">
+                        Category
+                    </th>
+                    <th class="vm-text-center" data-column-name="Address">
+                        Address
+                    </th>
+                    <th class="vm-text-center" data-column-name="City">
+                        City
+                    </th>
+                    <th class="vm-text-center" data-column-name="Status">
+                        Status
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="data in Users | orderBy:'Name' | filter:search">
+                    <td width="2%;">
+                        <span tooltip="Edit" style="float: none; position: static;" class="vm-cursor-pointer">
+                            <a ng-click="openUserModal('Edit', data)"><i class="fa fa-edit text-primary"></i></a>
+                        </span>
+                    </td>
+                    <td width="8%;">
+                        <p style="text-align: center;" ng-if="data.imagepresent">
+                            <img ng-src="{{data.userimage}}" style="height:35px; width:35px;" />
+                        </p>
+                        <p style="text-align: center;" ng-if="!data.imagepresent">
+                            <i class="fa fa-user 3x"></i>
+                        </p>
+                    </td>
+                    <td width="15%;" class="vm-text-left">
+                        <span tooltip-append-to-body="true" tooltip="{{data.Name}}" data-column-name="Name">
+                            {{ data.Name| limitTo:10}}{{data.Name.length > 10 ? '...' : ''}}
+                        </span>
+                    </td>
+                    <td width="15%;" class="vm-text-left">
+                        <span tooltip-append-to-body="true" tooltip="{{data.Email}}" data-column-name="Email">
+                            {{ data.Email| limitTo:15}}{{data.Email.length > 15 ? '...' : ''}}
+                        </span>
+                    </td>
+                    <td width="10%;" class="vm-text-left">
+                        <span tooltip-append-to-body="true" tooltip="{{data.MobileNumber}}" data-column-name="Mobile">
+                            {{ data.MobileNumber}}
+                        </span>
+                    </td>
+                    <td width="10%;" class="vm-text-left">
+                        <span tooltip-append-to-body="true" tooltip="{{data.CategoryName}}" data-column-name="Category">
+                            {{data.CategoryName | limitTo:8}}{{data.CategoryName.length > 8 ? '...' : ''}}
+                        </span>
+                    </td>
+                    <td width="25%;" class="vm-text-left">
+                        <span tooltip-append-to-body="true" tooltip="{{data.Address}}" data-column-name="Address">
+                            {{data.Address | limitTo:15}}{{data.Address.length > 20 ? '...' : ''}}
+                        </span>
+                    </td>
+                    <td width="10%;" class="vm-text-left">
+                        <span tooltip-append-to-body="true" tooltip="{{data.City}}" data-column-name="City">
+                            {{ data.City| limitTo:10}}{{data.City.length > 15 ? '...' : ''}}
+                        </span>
+                    </td>
+                    <td width="5%;" class="vm-text-center">
+                        <span tooltip="Active" ng-if="data.Status === true"><i class="fa fa-thumbs-up text-success"></i></span>
+                        <span tooltip="Deactive" ng-if="data.Status !== true"><i class="fa fa-thumbs-down text-danger"></i></span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+
+
+
+
+

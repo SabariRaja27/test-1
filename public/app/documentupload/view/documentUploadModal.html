@@ -1,0 +1,39 @@
+﻿<form name="DocumentForm" novalidate ngformvalidate>
+    <div class="modal-header" id="div_documentUploadmodal">
+        <button type="button" class="close" ng-click="cancel()">
+            &times;
+        </button>
+        <h3 class="modal-title">Add</h3>
+    </div>
+    <div ng-controller="documentcontroller">
+        <div class="modal-body">
+            <div class="row" ng-controller="masterDataController">
+                <div class="col-md-12 hide">
+                    <div class="form-group">
+                        <label>Document Type</label>
+                        <vm-ui-select2 control-id="cboDocumentType" place-holder="Select" ng-select-model="DocumentTypeDetails" items="Masters.DocumentTypes"></vm-ui-select2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+
+                <div class="form-group col-md-8">
+                    <input class="form-control" id="txtDocumentName" placeholder="" ng-model="currentfileAdded_name" name="Document"
+                           ng-required=true data-controlname="Document" ngvalidate />
+                </div>
+                <!-- <span class="btn btn-danger fileinput-button"><i class="icon-upload icon-white"></i>
+                     <span>Browse</span>
+                <input type="file" nv-file-select uploader="uploader"/><br/>
+                  </span>-->
+                <button type="button" class="btn btn-primary" ng-file-select="" ng-model="files" ng-multiple="false"
+                        ngf-accept="{{FileAcceptType}}" accept="{{FileAcceptType}}">
+                    Browse
+                </button>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" click-once="Uploading..." formname="DocumentForm" ng-click="addTodocumentGrid(currentfileAdded); cancel()">Upload</button>
+        </div>
+    </div>
+
+</form>

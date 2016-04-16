@@ -1,0 +1,25 @@
+'use strict';
+reachApp.constant('vmuisettings', {
+    singlemasterviewclicked: false,
+    adminrolecode: "XYMIOV",
+    CustomerRoleCode: "WZUWZH",
+    ServicerepCode: "J3KSZA",
+    documenttypecode: "IMAGE",
+    PROTONAPIURL: 'http://prithiviraj.vmoksha.com:8066/',
+    PROTONWEBURL: 'http://localhost:9000',
+    OrderAcceptedCode: "7XPJ3I",
+    PendingOrderStatusCode: "FWZ7Q1",
+    OpenOrderStatusCode: "PXR1Y5",
+    InspectionRejectedCode: "F5OB7F",
+    ClosedOrderStatusCode: "Q695KP",
+    RescheduledOrderStatusCode: "ONHU76",
+    PartiallyClosedOrderStatusCode: "QP3LMO",
+    ServiceTaxCode: "LJDEEF",
+    CancelledStatusCode: "UIFE8W",
+    UOMFixedCode: "MCCMB7",
+    StartOrderStatusCode: "T8KZVB",
+    StopOrderStatusCode: "FWZ7Q1",
+    OrderMethodCode: "R0AP8K",
+    PendingPaymentStatusCode: "EO7HNI",
+    FailedPaymentStatusCode: "8D14FZ"
+});

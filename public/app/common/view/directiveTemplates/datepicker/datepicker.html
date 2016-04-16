@@ -1,0 +1,10 @@
+﻿<p class="input-group" style="margin-bottom:0px;"><input type="text" class="form-control date-required" id="{{controlId}}" placeholder="Select"
+       datepicker-popup="{{format}}" ng-model="ngDateSelected" min-date="previousDate" max-date="futureDate"
+       is-open="opened" datepicker-options="dateOptions" date-disabled="disabled(date, mode)"
+       close-text="Close" name="{{controlId}}" ng-required="{{fieldRequired}}" data-controlname="{{controlName}}"
+       ngvalidate />
+<span class="input-group-btn">
+    <button type="button" class="btn btn-default" ng-click="openDatepicker($event)">
+        <i class="glyphicon glyphicon-calendar"></i>
+    </button>
+</span></p>
